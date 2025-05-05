@@ -28,19 +28,6 @@ void RunCommand(const std::string& userInput) {
     system(cmd.c_str());
 }
 
-// 4. ハードコーディングされたパスワード
-std::string GetSecret() {
-    // ハードコーディングされたパスワード（情報漏洩の危険）
-    return "SuperSecretPassword123";
-}
-
-// 5. 暗号化なしで重要データ保存
-void SaveSecret(const std::string& secret) {
-    std::ofstream ofs("secret.txt");
-    ofs << secret;
-    ofs.close();
-    std::cout << "Secret saved to secret.txt" << std::endl;
-}
 
 int main() {
     std::cout << "脆弱性デモ開始\n";
@@ -65,15 +52,6 @@ int main() {
     std::cout << "コマンドに渡す文字列を入力してください: ";
     std::getline(std::cin, cmdInput);
     RunCommand(cmdInput);
-
-    // 4. ハードコーディングされたパスワード
-    std::cout << "\n[4] ハードコーディングされたパスワードの取得\n";
-    std::string secret = GetSecret();
-    std::cout << "取得したシークレット: " << secret << std::endl;
-
-    // 5. 暗号化なしでシークレット保存
-    std::cout << "\n[5] シークレットを暗号化せず保存\n";
-    SaveSecret(secret);
 
     std::cout << "\n脆弱性デモ終了\n";
     return 0;
