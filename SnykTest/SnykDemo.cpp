@@ -8,7 +8,7 @@
 void VulnerableBuffer(const char* input) {
     char buffer[8];
     // バッファサイズをチェックせずコピー（バッファオーバーフロー）
-    strcpy(buffer, input); // 警告が出ますが脆弱性デモのためOK
+    strcpy(buffer, input);
     std::cout << "Buffer: " << buffer << std::endl;
 }
 
